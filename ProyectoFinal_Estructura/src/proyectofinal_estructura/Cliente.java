@@ -13,10 +13,14 @@ public class Cliente {//Clase Cliente
     //atributos de la clase
     private String nombre;
     private char prioridad;
-    private int tiempoTramite;
+    private int lugarFila;
+    private int duracionTramite;
 //metodo constructor de la clase
-    public Cliente(String nombre) {
+    public Cliente(String nombre,char prioridad,int lugarFila,int duracionTramite) {
         this.nombre = nombre;
+        this.prioridad=prioridad;
+        this.lugarFila=lugarFila;
+        this.duracionTramite=duracionTramite;
     }
 //metodos set y get de los atributos de la clase
 
@@ -32,11 +36,17 @@ public class Cliente {//Clase Cliente
     public void setPrioridad(char prioridad) {
         this.prioridad = prioridad;
     }
-    public int getTiempoTramite() {
-        return tiempoTramite;
+    public int getLugarFila() {
+        return lugarFila;
     }
-    public void setTiempoTramite(int tiempoTramite) {
-        this.tiempoTramite = tiempoTramite;
+    public void setLugarFila(int lugarFila) {
+        this.lugarFila = lugarFila;
+    }
+    public int getDuracionTramite() {
+        return duracionTramite;
+    }
+    public void setDuracionTramite(int duracionTramite) {
+        this.duracionTramite = duracionTramite;
     }
 
 }
