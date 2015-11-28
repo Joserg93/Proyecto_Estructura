@@ -51,25 +51,25 @@ public class ListaCaja {
      * Método para Borrar los Datos
      * @return: Dato falso ó verdadero, sobre el estado del nodo agregado
      */
-    public boolean borrar() {
-        boolean retorno = true;
-        //si la lista está vacía no puede borrar
-        if (this.primero == null) {
-            retorno = false;
-        } //en caso de que la lista tenga elementos
-        else {
-            //si la lista tiene únicamente un elemento
-            if (this.primero == this.ultimo) {
-                this.primero = this.ultimo = null;
-            } //si la lista tiene más de un elemento
-            else {
-                Nodo_Caja actual = this.primero;
-                this.primero = actual.sgte;
-                actual = null;
-            }
-            this.tamaño--; //Reduce de tamaño la lista
-        }
-        return (retorno); //Devuelve falso o verdadero
-    }
+//    public boolean borrar() {
+//        boolean retorno = true;
+//        //si la lista está vacía no puede borrar
+//        if (this.primero == null) {
+//            retorno = false;
+//        } //en caso de que la lista tenga elementos
+//        else {
+//            //si la lista tiene únicamente un elemento
+//            if (this.primero == this.ultimo) {
+//                this.primero = this.ultimo = null;
+//            } //si la lista tiene más de un elemento
+//            else {
+//                Nodo_Caja actual = this.primero;
+//                this.primero = actual.sgte;
+//                actual = null;
+//            }
+//            this.tamaño--; //Reduce de tamaño la lista
+//        }
+//        return (retorno); //Devuelve falso o verdadero
+//    }
 
 }

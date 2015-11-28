@@ -12,7 +12,6 @@ package proyectofinal_estructura;
 public class Nodo_Fila{//Clase Nodo Fila  
     //atributos de la clase
     public Nodo_Fila sgte;
-    public Nodo_Fila ant;
     public Cliente dato; 
 //metodo constructor de la clase
     /**
@@ -21,6 +20,6 @@ public class Nodo_Fila{//Clase Nodo Fila
      */
     public Nodo_Fila(Cliente pDato){
         this.dato = pDato;
-        sgte = ant = null;
+        sgte = null;
     } 
 }
