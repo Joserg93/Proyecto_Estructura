@@ -14,18 +14,20 @@ import javax.swing.JOptionPane;
 public class Menu_Banco {
     Scanner dato = new Scanner(System.in);//objeto Scanner para capturar datos del usuario del sistema
     //variables para guardar la informacion capturada del sistema
-        String usuario, pass;
+        //String usuario, pass;
         String opcion;
         String[] Vec_nom={"José","Allan","Melissa","Cristina","Diego","María","Olger","Pablo","Juan","Antonio"};
         char[] Vec_prioridad={'A','B','C','D'};
-        Nodo_Cliente CL;
+        //Nodo_Cliente CL;
         int cont=0;
         int random=0;
     //Instancias del sistema
         public static ListaFila instancia_fila = new ListaFila();
         public static Banco instancia_banco = new Banco();
-    //Metodo Menu
-    public void Menu(){
+    /**
+     *Método que permite mostrar el menú principal del simulador
+     */
+        public void Menu(){
         do{//while de reimprecion del menu 
             opcion=JOptionPane.showInputDialog(null,
                 "                   - Bienvenidos al Simulador de Bancos -\n"

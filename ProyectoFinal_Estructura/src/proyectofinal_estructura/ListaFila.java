@@ -93,8 +93,10 @@ public class ListaFila {//Lista Circular
             }
         }
     }
-    //Imprimir Lista para pruebas
-    public void Imprimir(){
+    /**
+     *Método que permite Imprimir Lista para pruebas
+     */
+        public void Imprimir(){
         Nodo_Fila temp = this.primero;
         for(int y=1;y<=tamaño;y++){
             System.out.println(temp.dato.getLugarFila()+" "+temp.dato.getNombre()+" "+temp.dato.getPrioridad());
