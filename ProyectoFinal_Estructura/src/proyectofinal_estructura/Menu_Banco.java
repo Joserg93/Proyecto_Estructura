@@ -22,7 +22,7 @@ public class Menu_Banco {
         int random=0;
     //Instancias del sistema
         public static ListaFila instancia_fila = new ListaFila();
-        
+        public static Banco instancia_banco = new Banco();
     //Metodo Menu
     public void Menu(){
         do{//while de reimprecion del menu 
@@ -47,19 +47,23 @@ public class Menu_Banco {
                                 for(int y=0;y<20;y++){
                                     instancia_fila.Agregar_Fila(Vec_fila[y]);
                                 }
-                                instancia_fila.Imprimir();
+//                                instancia_fila.Imprimir();
                                 instancia_fila.Ordenar_Fila();
-                                System.out.println();
-                                instancia_fila.Imprimir();
+                                instancia_banco.Iniciar_Banco();
+//                                System.out.println();
+//                                instancia_fila.Imprimir();
+                                instancia_banco.Procesar_Cajas();
+                                instancia_banco.Promedio_Caja();
+                                
                             }
                             cont=cont+1;
                         }
                        
                         break;    
                     default:
-                        opcion="3";
+                        opcion="2";
                         break;
                 }
-            }while(opcion!="3");
+            }while(opcion!="2");
     }
 }

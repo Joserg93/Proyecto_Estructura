@@ -17,19 +17,26 @@ public class Banco {
         Caja caja_4 = new Caja("Caja 4");
         Caja caja_5 = new Caja("Caja 5");
     //atributos de la clase
-        public Nodo_Fila primero_fila = Menu_Banco.instancia_fila.primero;
-        public Nodo_Fila ultimo_fila = Menu_Banco.instancia_fila.ultimo;
+        Nodo_Fila primero_fila = null;
+        Nodo_Fila ultimo_fila = null;
+        Nodo_Caja c1 = null;
+        Nodo_Caja c2 = null;
+        Nodo_Caja c3 = null;
+        Nodo_Caja c4 = null;
+        Nodo_Caja c5 = null;
         public int cont_1,cont_2,cont_3,cont_4,cont_5;
+        public int promedio_1,promedio_2,promedio_3,promedio_4,promedio_5;
+        public Caja caja;
+        
+        public void Iniciar_Banco(){ 
+            this.primero_fila = Menu_Banco.instancia_fila.primero;
+            this.ultimo_fila = Menu_Banco.instancia_fila.ultimo;
+        }
     /**
      *
      */
     public void Procesar_Cajas(){
         Nodo_Fila temp=primero_fila;
-        Nodo_Caja c1 = caja_1.clientes.primero;
-        Nodo_Caja c2 = caja_2.clientes.primero;
-        Nodo_Caja c3 = caja_3.clientes.primero;
-        Nodo_Caja c4 = caja_4.clientes.primero;
-        Nodo_Caja c5 = caja_5.clientes.primero;
         while(temp!=null){
             if(temp==primero_fila){
                 caja_1.clientes.agregar(temp.dato);
@@ -42,41 +49,46 @@ public class Banco {
                 temp=temp.sgte;
                 caja_5.clientes.agregar(temp.dato);
                 temp=temp.sgte;
+                c1 = caja_1.clientes.primero;
+                c2 = caja_2.clientes.primero;
+                c3 = caja_3.clientes.primero;
+                c4 = caja_4.clientes.primero;
+                c5 = caja_5.clientes.primero;
                 cont_1=0;
                 cont_2=0;
                 cont_3=0;
                 cont_4=0;
                 cont_5=0;
             }else{
-                if(c1.dato.getPrioridad()==cont_1&&temp!=null){
+                if(c1.dato.getDuracionTramite()==cont_1&&temp!=null){
                     caja_1.clientes.agregar(temp.dato);
-                    c1=c1.sgte;
+                    c1 = caja_1.clientes.primero;
                     temp=temp.sgte;
                     cont_1=0;
                 }
-                if(c2.dato.getPrioridad()==cont_2&&temp!=null){
+                if(c2.dato.getDuracionTramite()==cont_2&&temp!=null){
                     caja_2.clientes.agregar(temp.dato);
-                    c2=c2.sgte;
+                    c2 = caja_2.clientes.primero;
                     temp=temp.sgte;
-                    cont_1=0;
+                    cont_2=0;
                 }
-                if(c3.dato.getPrioridad()==cont_3&&temp!=null){
+                if(c3.dato.getDuracionTramite()==cont_3&&temp!=null){
                     caja_3.clientes.agregar(temp.dato);
-                    c3=c3.sgte;
+                    c3 = caja_3.clientes.primero;
                     temp=temp.sgte;
-                    cont_1=0;
+                    cont_3=0;
                 }
-                if(c4.dato.getPrioridad()==cont_4&&temp!=null){
+                if(c4.dato.getDuracionTramite()==cont_4&&temp!=null){
                     caja_4.clientes.agregar(temp.dato);
-                    c4=c4.sgte;
+                    c4 = caja_4.clientes.primero;
                     temp=temp.sgte;
-                    cont_1=0;
+                    cont_4=0;
                 }
-                if(c5.dato.getPrioridad()==cont_5&&temp!=null){
+                if(c5.dato.getDuracionTramite()==cont_5&&temp!=null){
                     caja_5.clientes.agregar(temp.dato);
-                    c5=c5.sgte;
+                    c5 = caja_5.clientes.primero;
                     temp=temp.sgte;
-                    cont_1=0;
+                    cont_5=0;
                 }
             }
             cont_1=cont_1+1;
@@ -85,5 +97,62 @@ public class Banco {
             cont_4=cont_4+1;
             cont_5=cont_5+1;
         }
+    }
+    
+    public void Promedio_Caja(){
+        Nodo_Caja temp = caja_1.clientes.primero;
+        promedio_1=0;
+        promedio_2=0;
+        promedio_3=0;
+        promedio_4=0;
+        promedio_5=0;
+        for(int x=0;x<5;x++){
+            while(temp!=null){
+                if(x==0){
+                    promedio_1=promedio_1+temp.dato.getDuracionTramite();
+                    temp=temp.sgte;
+                }
+                if(x==1){
+                    promedio_2=promedio_2+temp.dato.getDuracionTramite();
+                    temp=temp.sgte;
+                }
+                if(x==2){
+                    promedio_3=promedio_3+temp.dato.getDuracionTramite();
+                    temp=temp.sgte;
+                }
+                if(x==3){
+                    promedio_4=promedio_4+temp.dato.getDuracionTramite();
+                    temp=temp.sgte;
+                }
+                if(x==4){
+                    promedio_5=promedio_5+temp.dato.getDuracionTramite();
+                    temp=temp.sgte;
+                }
+            }
+            if(x==0){
+                temp = caja_2.clientes.primero;
+            }
+            if(x==1){
+                temp = caja_3.clientes.primero;
+            }
+            if(x==2){
+                temp = caja_4.clientes.primero;
+            }
+            if(x==3){
+                temp = caja_5.clientes.primero;
+            }
+        }
+        System.out.println("Nombre de Caja: "+caja_1.nombre+" Cantidad de clientes atendidos: "
+                +caja_1.clientes.tamaño+" promedio de tiempo: "+(promedio_1/caja_1.clientes.tamaño));
+        System.out.println("Nombre de Caja: "+caja_2.nombre+" Cantidad de clientes atendidos: "
+                +caja_2.clientes.tamaño+" promedio de tiempo: "+(promedio_2/caja_2.clientes.tamaño));
+        System.out.println("Nombre de Caja: "+caja_3.nombre+" Cantidad de clientes atendidos: "
+                +caja_3.clientes.tamaño+" promedio de tiempo: "+(promedio_3/caja_3.clientes.tamaño));
+        System.out.println("Nombre de Caja: "+caja_4.nombre+" Cantidad de clientes atendidos: "
+                +caja_4.clientes.tamaño+" promedio de tiempo: "+(promedio_4/caja_4.clientes.tamaño));
+        System.out.println("Nombre de Caja: "+caja_5.nombre+" Cantidad de clientes atendidos: "
+                +caja_5.clientes.tamaño+" promedio de tiempo: "+(promedio_5/caja_5.clientes.tamaño));
+        System.out.println("Tolal de clientes atendidos: "+(caja_1.clientes.tamaño+caja_2.clientes.tamaño
+                +caja_3.clientes.tamaño+caja_4.clientes.tamaño+caja_5.clientes.tamaño));
     }
 }
