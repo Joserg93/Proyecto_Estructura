@@ -6,8 +6,9 @@
 package proyectofinal_estructura;
 
 /**
- *
- * @author joser
+ *  Fecha de Primera Edición 16/11/2015
+ *  Fecha de Última Edición 29/11/2015
+ * @author Jose Miguel y Diego
  */
 public class ListaCaja {
     //atributos de la clase

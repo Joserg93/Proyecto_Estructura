@@ -7,8 +7,9 @@ package proyectofinal_estructura;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 /**
- *
- * @author joser
+ *  Fecha de Primera Edición 16/11/2015
+ *  Fecha de Última Edición 29/11/2015
+ * @author Jose Miguel y Diego
  */
 public class Menu_Banco {
     Scanner dato = new Scanner(System.in);//objeto Scanner para capturar datos del usuario del sistema
@@ -26,12 +27,13 @@ public class Menu_Banco {
     //Metodo Menu
     public void Menu(){
         do{//while de reimprecion del menu 
-            opcion=JOptionPane.showInputDialog(null,"- Bienvenidos al Simulador de Bancos -\n"
-                + "Para mayor rapidez en su trámite favor siga las instrucciones.\n"
-                + "Digite ingrese cualquiera de las instrucciones siguiente, segun sea su necesidad.\n"
+            opcion=JOptionPane.showInputDialog(null,
+                "                   - Bienvenidos al Simulador de Bancos -\n"
+                + "     Para mayor rapidez en su trámite favor siga las instrucciones.\n \n"
+                + "Ingrese cualquiera de las instrucciones siguiente, segun sea su necesidad.\n"
                 + "1- Inicio de Simulador de fila Bancaria.\n"
                 + "2- Salir del sistema.", 
-        "PLATAFORMA INICIAL INGRESO AL SIMULADOR",JOptionPane.QUESTION_MESSAGE);
+        "PLATAFORMA INICIAL INGRESO AL SIMULADOR",JOptionPane.INFORMATION_MESSAGE);
 //                System.out.println();
 //                System.out.println("Bienvenidos al Simulador de Bancos");
 //                System.out.println("1- Generar Simulacion.");
@@ -69,5 +71,6 @@ public class Menu_Banco {
                         break;
                 }
             }while(!"2".equals(opcion));
+        JOptionPane.showMessageDialog(null, "Gracias por su visita, lo esperamos pronto.");
     }
 }

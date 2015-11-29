@@ -5,9 +5,12 @@
  */
 package proyectofinal_estructura;
 
+import javax.swing.JOptionPane;
+
 /**
- *
- * @author joser
+ *  Fecha de Primera Edición 16/11/2015
+ *  Fecha de Última Edición 29/11/2015
+ * @author Jose Miguel y Diego
  */
 public class Banco {
     //Instancias de la clase banco 
@@ -30,7 +33,7 @@ public class Banco {
         
         public void Iniciar_Banco(){ 
             this.primero_fila = Menu_Banco.instancia_fila.primero;
-            this.ultimo_fila = Menu_Banco.instancia_fila.ultimo;
+            //this.ultimo_fila = Menu_Banco.instancia_fila.ultimo;
         }
     /**
      *
@@ -98,7 +101,6 @@ public class Banco {
             cont_5=cont_5+1;
         }
     }
-    
     public void Promedio_Caja(){
         Nodo_Caja temp = caja_1.clientes.primero;
         promedio_1=0;
@@ -142,17 +144,35 @@ public class Banco {
                 temp = caja_5.clientes.primero;
             }
         }
-        System.out.println("Nombre de Caja: "+caja_1.nombre+" Cantidad de clientes atendidos: "
-                +caja_1.clientes.tamaño+" promedio de tiempo: "+(promedio_1/caja_1.clientes.tamaño));
-        System.out.println("Nombre de Caja: "+caja_2.nombre+" Cantidad de clientes atendidos: "
-                +caja_2.clientes.tamaño+" promedio de tiempo: "+(promedio_2/caja_2.clientes.tamaño));
-        System.out.println("Nombre de Caja: "+caja_3.nombre+" Cantidad de clientes atendidos: "
-                +caja_3.clientes.tamaño+" promedio de tiempo: "+(promedio_3/caja_3.clientes.tamaño));
-        System.out.println("Nombre de Caja: "+caja_4.nombre+" Cantidad de clientes atendidos: "
-                +caja_4.clientes.tamaño+" promedio de tiempo: "+(promedio_4/caja_4.clientes.tamaño));
-        System.out.println("Nombre de Caja: "+caja_5.nombre+" Cantidad de clientes atendidos: "
-                +caja_5.clientes.tamaño+" promedio de tiempo: "+(promedio_5/caja_5.clientes.tamaño));
-        System.out.println("Tolal de clientes atendidos: "+(caja_1.clientes.tamaño+caja_2.clientes.tamaño
-                +caja_3.clientes.tamaño+caja_4.clientes.tamaño+caja_5.clientes.tamaño));
+        JOptionPane.showMessageDialog(null,"Cajas:\n"
+                + "     Nombre de Caja: "+caja_1.nombre+"\n"
+                + "         Cantidad de clientes atendidos: "+caja_1.clientes.tamaño+"\n"
+                + "         Promedio de tiempo: "+(promedio_1/caja_1.clientes.tamaño)+"\n"
+                + "     Nombre de Caja: "+caja_2.nombre+"\n"
+                + "         Cantidad de clientes atendidos: "+caja_2.clientes.tamaño+"\n"
+                + "         Promedio de tiempo: "+(promedio_1/caja_2.clientes.tamaño)+"\n"
+                + "     Nombre de Caja: "+caja_3.nombre+"\n"
+                + "         Cantidad de clientes atendidos: "+caja_3.clientes.tamaño+"\n"
+                + "         Promedio de tiempo: "+(promedio_1/caja_3.clientes.tamaño)+"\n"
+                + "     Nombre de Caja: "+caja_4.nombre+"\n"
+                + "         Cantidad de clientes atendidos: "+caja_4.clientes.tamaño+"\n"
+                + "         Promedio de tiempo: "+(promedio_1/caja_4.clientes.tamaño)+"\n"
+                + "     Nombre de Caja: "+caja_5.nombre+"\n"
+                + "         Cantidad de clientes atendidos: "+caja_5.clientes.tamaño+"\n"
+                + "         Promedio de tiempo: "+(promedio_1/caja_5.clientes.tamaño),
+                "Información de rendimiento de cajas",JOptionPane.INFORMATION_MESSAGE);
+//        
+//        System.out.println("Nombre de Caja: "+caja_1.nombre+" Cantidad de clientes atendidos: "
+//                +caja_1.clientes.tamaño+" promedio de tiempo: "+(promedio_1/caja_1.clientes.tamaño));
+//        System.out.println("Nombre de Caja: "+caja_2.nombre+" Cantidad de clientes atendidos: "
+//                +caja_2.clientes.tamaño+" promedio de tiempo: "+(promedio_2/caja_2.clientes.tamaño));
+//        System.out.println("Nombre de Caja: "+caja_3.nombre+" Cantidad de clientes atendidos: "
+//                +caja_3.clientes.tamaño+" promedio de tiempo: "+(promedio_3/caja_3.clientes.tamaño));
+//        System.out.println("Nombre de Caja: "+caja_4.nombre+" Cantidad de clientes atendidos: "
+//                +caja_4.clientes.tamaño+" promedio de tiempo: "+(promedio_4/caja_4.clientes.tamaño));
+//        System.out.println("Nombre de Caja: "+caja_5.nombre+" Cantidad de clientes atendidos: "
+//                +caja_5.clientes.tamaño+" promedio de tiempo: "+(promedio_5/caja_5.clientes.tamaño));
+//        System.out.println("Tolal de clientes atendidos: "+(caja_1.clientes.tamaño+caja_2.clientes.tamaño
+//                +caja_3.clientes.tamaño+caja_4.clientes.tamaño+caja_5.clientes.tamaño));
     }
 }

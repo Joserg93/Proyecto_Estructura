@@ -6,8 +6,9 @@
 package proyectofinal_estructura;
 
 /**
- *
- * @author joser
+ *  Fecha de Primera Edición 16/11/2015
+ *  Fecha de Última Edición 29/11/2015
+ * @author Jose Miguel y Diego
  */
 public class Nodo_Fila{//Clase Nodo Fila  
     //atributos de la clase
