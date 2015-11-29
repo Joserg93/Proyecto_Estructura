@@ -9,14 +9,14 @@ package proyectofinal_estructura;
  *
  * @author joser
  */
-public class Cliente {//Clase Cliente
+public class Nodo_Cliente {//Clase Cliente
     //atributos de la clase
     private String nombre;
     private char prioridad;
     private int lugarFila;
     private int duracionTramite;
 //metodo constructor de la clase
-    public Cliente(String nombre,char prioridad,int lugarFila,int duracionTramite) {
+    public Nodo_Cliente(String nombre,char prioridad,int lugarFila,int duracionTramite) {
         this.nombre = nombre;
         this.prioridad=prioridad;
         this.lugarFila=lugarFila;

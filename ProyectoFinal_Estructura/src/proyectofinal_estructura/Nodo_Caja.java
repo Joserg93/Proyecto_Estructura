@@ -11,13 +11,13 @@ package proyectofinal_estructura;
  */
 public class Nodo_Caja{//Clase Nodo Caja
     public Nodo_Caja sgte;
-    public Cliente dato;
+    public Nodo_Cliente dato;
 //metodo constructor de la clase
     /**
      * Método Constructor de Nodo Simple
      * @param pDato = Datos que se recibe dentro del nodo
      */
-    public Nodo_Caja(Cliente pDato){
+    public Nodo_Caja(Nodo_Cliente pDato){
         this.dato = pDato;
         sgte = null;
     } 

@@ -18,16 +18,16 @@ public class ListaFila {//Lista Circular
     public char letra;
     //método constructor vacío
     public ListaFila(){
-        this.primero = this.ultimo = null;
+        this.primero = null;//this.ultimo = null;
         this.tamaño = 0;
     }
     //método que agrege al Final de la lista
     /**
      * Método que agrega al Final de la Lista
-     * @param pDato: Recibe el dato que se almacenará en el nodo en lista
+     * @param pDato: Recibe el dato que se almacenará en el nodo de la lista de clientes
      * @return: Dato falso ó verdadero, sobre el estado del nodo agregado
      */
-    public boolean Agregar_Fila(Cliente Dato_Cliente) {
+    public boolean Agregar_Fila(Nodo_Cliente Dato_Cliente) {
         boolean retorno = true;
         try {
             //en caso que la lista esté vacía
@@ -38,6 +38,8 @@ public class ListaFila {//Lista Circular
             } //inserta al inicio de la lista cuando ya hay al menos un elemento
             else {
                 Nodo_Fila nuevo = new Nodo_Fila(Dato_Cliente);
+//                nuevo.sgte=primero;
+//                primero=nuevo;
                 this.ultimo.sgte=nuevo;
                 this.ultimo=nuevo;
             }
@@ -48,6 +50,9 @@ public class ListaFila {//Lista Circular
         }
         return (retorno); //Retorna verdadero ó falso
     }
+    /**
+     *Método que ordena la fila bancaria
+     */
     public void Ordenar_Fila(){
         Nodo_Fila temp = this.primero;
         Nodo_Fila temp2 = temp;

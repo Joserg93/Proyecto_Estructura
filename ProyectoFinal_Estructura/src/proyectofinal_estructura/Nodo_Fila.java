@@ -12,13 +12,13 @@ package proyectofinal_estructura;
 public class Nodo_Fila{//Clase Nodo Fila  
     //atributos de la clase
     public Nodo_Fila sgte;
-    public Cliente dato; 
+    public Nodo_Cliente dato; 
 //metodo constructor de la clase
     /**
      * Método Constructor de Nodo Doble
      * @param pDato: Dato que recibe el Nodo
      */
-    public Nodo_Fila(Cliente pDato){
+    public Nodo_Fila(Nodo_Cliente pDato){
         this.dato = pDato;
         sgte = null;
     } 

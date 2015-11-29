@@ -25,7 +25,7 @@ public class ListaCaja {
      * @param pDato: Dato que se recibe del Nodo
      * @return: Dato falso ó verdadero, sobre el estado del nodo agregado
      */
-    public boolean agregar(Cliente pDato) {
+    public boolean agregar(Nodo_Cliente pDato) {
         boolean retorno = true;
         try {
             //en caso que la lista esté vacía
