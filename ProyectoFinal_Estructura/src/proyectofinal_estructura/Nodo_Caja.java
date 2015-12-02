@@ -7,19 +7,19 @@ package proyectofinal_estructura;
 
 /**
  *  Fecha de Primera Edición 16/11/2015
- *  Fecha de Última Edición 29/11/2015
+ *  Fecha de Última Edición 1/12/2015
  * @author Jose Miguel y Diego
  */
 public class Nodo_Caja{//Clase Nodo Caja
     public Nodo_Caja sgte;
-    public Nodo_Cliente dato;
+    public Cliente dato;
 //metodo constructor de la clase
     /**
-     * Método Constructor de Nodo Simple
-     * @param pDato = Datos que se recibe dentro del nodo
+     * Método Constructor de Nodo_Caja
+     * @param Dato_Cliente:recibe un dato de tipo cliente 
      */
-    public Nodo_Caja(Nodo_Cliente pDato){
-        this.dato = pDato;
+    public Nodo_Caja(Cliente Dato_Cliente){
+        this.dato = Dato_Cliente;
         sgte = null;
     } 
 }

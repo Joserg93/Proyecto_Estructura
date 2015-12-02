@@ -5,125 +5,93 @@
  */
 package proyectofinal_estructura;
 
+import static proyectofinal_estructura.Menu_Banco.instancia_fila;
+
 /**
  *  Fecha de Primera Edición 16/11/2015
- *  Fecha de Última Edición 29/11/2015
+ *  Fecha de Última Edición 1/12/2015
  * @author Jose Miguel y Diego
  */
-public class ListaFila {//Lista Circular
+public class ListaFila {
     
     //atributos de la clase
     public Nodo_Fila primero;
     public Nodo_Fila ultimo;
-    public int tamaño;
     public char letra;
-    //método constructor vacío
+    //método constructor de la lista fila
     public ListaFila(){
-        this.primero = null;//this.ultimo = null;
-        this.tamaño = 0;
+        this.primero = null;
+        this.ultimo = null;
     }
-    //método que agrege al Final de la lista
+    
     /**
-     * Método que agrega al Final de la Lista
-     * @param pDato: Recibe el dato que se almacenará en el nodo de la lista de clientes
-     * @return: Dato falso ó verdadero, sobre el estado del nodo agregado
+     *metodo para agregar un nuevo cliente a la lista fila
+     * @param Dato_Cliente:recibe un dato de tipo cliente
      */
-    public boolean Agregar_Fila(Nodo_Cliente Dato_Cliente) {
-        boolean retorno = true;
-        try {
+    public void Agregar_Fila(Cliente Dato_Cliente) {
             //en caso que la lista esté vacía
-            if (this.primero == null) {
+            if (this.primero == null){
                 Nodo_Fila nuevo = new Nodo_Fila(Dato_Cliente);
                 this.primero = nuevo;
                 this.ultimo = nuevo;
-            } //inserta al inicio de la lista cuando ya hay al menos un elemento
-            else {
+            }else{//inserta al final de la lista cuando ya hay al menos un elemento en la lista
                 Nodo_Fila nuevo = new Nodo_Fila(Dato_Cliente);
-//                nuevo.sgte=primero;
-//                primero=nuevo;
                 this.ultimo.sgte=nuevo;
                 this.ultimo=nuevo;
             }
-            //incrementa el tamaño de la lista
-            tamaño++;
-        } catch (Exception e) {
-            retorno = false;
-        }
-        return (retorno); //Retorna verdadero ó falso
     }
+    
     /**
-     *Método que ordena la fila bancaria
+     *metodo para ordenar la lista de clientes de la fila 
      */
     public void Ordenar_Fila(){
-        Nodo_Fila temp = this.primero;
-        Nodo_Fila temp2 = temp;
-        Nodo_Fila temp3 = temp;
-        letra='B';
-        for(int x=0; x<=2;x++){
-            temp=this.primero;
-            temp2=temp;
-            temp3=temp;
-            for(int y=1;y<=tamaño;y++){
-                if(temp.dato.getPrioridad()==letra){
-                    if(temp==this.primero){
-                        temp2=temp;
-                        temp=temp.sgte;
-                        this.ultimo.sgte=temp2;
-                        this.primero.sgte=null;
-                        this.primero=temp;
-                        this.ultimo=temp2;
-                        temp3=this.primero;
-                    }else{
-                        temp2=temp;
-                        temp=temp.sgte;
-                        temp3.sgte=temp;
-                        this.ultimo.sgte=temp2;
-                        temp2.sgte=null;
-                        this.ultimo=temp2;
-                    }
-                }else{
-                    temp3=temp;
-                    temp=temp.sgte;
+        Nodo_Fila temp = this.primero;//variable temporal de tipo Nodo_Fila 
+        Cliente Vec_fila[]=new Cliente[20];//arreglo de tipo cliente para almacenar la lista de clientes de la lista
+        Cliente Vec_fila2[]=new Cliente[20];//arreglo de tipo cliente para almacenar la lista ordenada de los clientes de la lista
+        Cliente CL=null;//variable de tipo cliente para poder agregar a la lista de la fila
+        int cont=0;//variable contador para manejar el indice del arreglo Vec_fila2
+        letra='A';//variable  char para manejar la verificacion de la prioridad del cliente
+        for(int x=0;x<20;x++){//ciclo for que recorre los clientes de la lista fila y los agrega al arreglo Vec_fila 
+            Vec_fila[x]=new Cliente(temp.dato.getNombre(),temp.dato.getPrioridad(),temp.dato.getLugarFila(),
+                        temp.dato.getDuracionTramite());//agrega el cliente al arreglo con el indice del contador del ciclo for
+            temp=temp.sgte;//se asigna el nodo siguiente a la variable temporal
+        }
+        for(int x=0;x<4;x++){//ciclo for para reordenar los clientes del arreglo Vec_fila y asignarlos al arreglo Vec_fila2
+            for(int y=0;y<Vec_fila.length;y++){//ciclo for que recorre el arreglo Vec_fila
+                if(Vec_fila[y].getPrioridad()==letra){//condicion que verifica si la prioridad del cliente es igual a la letra que se esta buscando
+                    Vec_fila2[cont]=Vec_fila[y];//asigna el cliente del arreglo Vec_fila al arreglo Vec_fila2 en el indice de la variable contador
+                    cont=cont+1;//aumenta la varriable contador para guardar en un nuevo indice del arreglo
                 }
             }
-            if(x==0){
+            if(x==0){//condicion que verifica el contador del ciclo for de X para asignar a la variable letra que se va a utilizar en la siguiente repeticion del ciclo
+                letra='B';
+            }else if(x==1){//condicion que verifica el contador del ciclo for de X para asignar a la variable letra que se va a utilizar en la siguiente repeticion del ciclo
                 letra='C';
-            }else{
+            }else if(x==2){//condicion que verifica el contador del ciclo for de X para asignar a la variable letra que se va a utilizar en la siguiente repeticion del ciclo
                 letra='D';
             }
         }
-    }
-    /**
-     *Método que permite Imprimir Lista para pruebas
-     */
-        public void Imprimir(){
-        Nodo_Fila temp = this.primero;
-        for(int y=1;y<=tamaño;y++){
-            System.out.println(temp.dato.getLugarFila()+" "+temp.dato.getNombre()+" "+temp.dato.getPrioridad());
-            temp=temp.sgte;
+        Borrar_Todo();//se borra toda la lista fila para agregarle los clientes ordenados
+        for(int z=0;z<20;z++){//ciclo for para agregar los clientes ordenados del arreglo Vec_fila2 a la lista fila
+            Agregar_Fila(CL=Vec_fila2[z]);//agrega el cliente a la lista de la fila del banco
         }
     }
-    //método que borra el primer elemento de la lista
-//    public boolean borrar() {
-//        boolean retorno = true;
-//        //si la lista está vacía no puede borrar
-//        if (this.primero == null) {
-//            retorno = false;
-//        } //en caso de que la lista tenga elementos
-//        else {
-//            //si la lista tiene únicamente un elemento
-//            if (this.primero == this.ultimo) {
-//                this.primero = this.ultimo = null;
-//            } //si la lista tiene más de un elemento
-//            else {
-//                Nodo_Fila actual = this.primero;
-//                this.primero = actual.sgte;
-//                this.primero.ant = this.ultimo;
-//                actual = null;
-//            }
-//            this.tamaño--;
-//        }
-//        return (retorno);
-//    }
-  
+    
+    /**
+     *metodo para borrar el primer nodo de la lista fila
+     */
+    public void Borrar() {
+        //si la lista está vacía no puede borrar
+        if (this.primero != null) {
+                this.primero=this.primero.sgte;
+            }
+    }
+    
+    /**
+     *metodo para borrar todos los nodos de la lista de la fila
+     */
+    public void Borrar_Todo() {
+        this.primero=null;
+        this.ultimo=null;
+    }
 }

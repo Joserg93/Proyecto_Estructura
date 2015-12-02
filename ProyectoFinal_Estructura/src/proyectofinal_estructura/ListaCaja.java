@@ -7,7 +7,7 @@ package proyectofinal_estructura;
 
 /**
  *  Fecha de Primera Edición 16/11/2015
- *  Fecha de Última Edición 29/11/2015
+ *  Fecha de Última Edición 1/12/2015
  * @author Jose Miguel y Diego
  */
 public class ListaCaja {
@@ -20,57 +20,35 @@ public class ListaCaja {
         this.primero = this.ultimo = null;
         this.tamaño = 0;
     }
-    //método que agrege al inicio de la lista
+    
     /**
-     * Método para Agregar Datos
-     * @param pDato: Dato que se recibe del Nodo
-     * @return: Dato falso ó verdadero, sobre el estado del nodo agregado
+     *metodo para agregar un nuevo cliente a la lista caja 
+     * @param Dato_Cliente:recibe un dato de tipo cliente
+     * 
      */
-    public boolean agregar(Nodo_Cliente pDato) {
-        boolean retorno = true;
-        try {
+    public void agregar(Cliente Dato_Cliente) {
             //en caso que la lista esté vacía
             if (this.primero == null) {
-                Nodo_Caja nuevo = new Nodo_Caja(pDato);
+                Nodo_Caja nuevo = new Nodo_Caja(Dato_Cliente);
                 this.primero = nuevo;
                 this.ultimo = nuevo;
-            } //inserta al inicio de la lista cuando ya hay al menos un elemento
-            else {
-                Nodo_Caja nuevo = new Nodo_Caja(pDato);
+            } 
+            else {//inserta al inicio de la lista cuando ya hay al menos un elemento en la lista
+                Nodo_Caja nuevo = new Nodo_Caja(Dato_Cliente);
                 nuevo.sgte = this.primero;
                 this.primero = nuevo;
             }
             //incrementa el tamaño de la lista
             tamaño++;
-        } catch (Exception e) { //En caso de errores
-            retorno = false;
-        }
-        return (retorno); //Retorna verdadero o falso
     }
-    //método que borra el último elemento de la lista
+    
     /**
-     * Método para Borrar los Datos
-     * @return: Dato falso ó verdadero, sobre el estado del nodo agregado
+     *metodo para borrar todos los nodos de la lista de la caja
      */
-//    public boolean borrar() {
-//        boolean retorno = true;
-//        //si la lista está vacía no puede borrar
-//        if (this.primero == null) {
-//            retorno = false;
-//        } //en caso de que la lista tenga elementos
-//        else {
-//            //si la lista tiene únicamente un elemento
-//            if (this.primero == this.ultimo) {
-//                this.primero = this.ultimo = null;
-//            } //si la lista tiene más de un elemento
-//            else {
-//                Nodo_Caja actual = this.primero;
-//                this.primero = actual.sgte;
-//                actual = null;
-//            }
-//            this.tamaño--; //Reduce de tamaño la lista
-//        }
-//        return (retorno); //Devuelve falso o verdadero
-//    }
+    public void Borrar_Todo() {
+        this.primero=null;
+        this.ultimo=null;
+        tamaño=0;
+    }
 
 }

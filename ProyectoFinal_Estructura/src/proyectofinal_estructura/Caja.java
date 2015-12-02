@@ -7,37 +7,20 @@ package proyectofinal_estructura;
 
 /**
  *  Fecha de Primera Edición 16/11/2015
- *  Fecha de Última Edición 29/11/2015
+ *  Fecha de Última Edición 1/12/2015
  * @author Jose Miguel y Diego
  */
 public class Caja {//Clase Caja
     //atributos de la clase
     public ListaCaja clientes;
     public String nombre;
-    private boolean ocupado;
 //metodo constructor de la clase
     /**
      * Método Constructor de la Clase Caja
-     * @param pNombre: Recibe una Cadena de Letras para formar un "Nombre"
+     * @param Nombre: Recibe un string con el nombre de la caja
      */
-    public Caja(String pNombre) {
-        this.ocupado = false;
+    public Caja(String Nombre) {
         clientes = new ListaCaja();
-        nombre = pNombre;
-    }
-//metodos set y get de los atributos de la clase
-    /**
-     *
-     * @return: Método que avisa que el cajero está ocupado
-     */
-    public boolean isOcupado() {
-        return ocupado;
-    }
-    /**
-     * Método que "setea" el estado de "ocupado"
-     * @param ocupado: Recibe por dato, si se está ocupado ó no
-     */
-    public void setOcupado(boolean ocupado) {
-        this.ocupado = ocupado;
+        nombre = Nombre;
     }
 }

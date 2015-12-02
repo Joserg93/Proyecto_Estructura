@@ -7,23 +7,23 @@ package proyectofinal_estructura;
 
 /**
  *  Fecha de Primera Edición 16/11/2015
- *  Fecha de Última Edición 29/11/2015
+ *  Fecha de Última Edición 1/12/2015
  * @author Jose Miguel y Diego
  */
-public class Nodo_Cliente {//Clase Cliente
+public class Cliente {//Clase Cliente
     //atributos de la clase
     private String nombre;
     private char prioridad;
     private int lugarFila;
     private int duracionTramite;
-//metodo constructor de la clase
-    public Nodo_Cliente(String nombre,char prioridad,int lugarFila,int duracionTramite) {
+//metodo constructor de la clase cliente
+    public Cliente(String nombre,char prioridad,int lugarFila,int duracionTramite) {
         this.nombre = nombre;
         this.prioridad=prioridad;
         this.lugarFila=lugarFila;
         this.duracionTramite=duracionTramite;
     }
-//metodos set y get de los atributos de la clase
+//metodos set y get de los atributos de la clase cliente
 
     public String getNombre() {
         return nombre;
